@@ -10,6 +10,7 @@ plugin page at Dokuwiki.org.
 This version of ckgeditor should work with Linux, Windows, and versions of Dokuwiki installed with the 
 Ubuntu/Debian package manager.
 
+This version of ckgedit uses CKEditor 4.2.2
 
 
 
