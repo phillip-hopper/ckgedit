@@ -1,5 +1,5 @@
 <?php
-global $fckg_lang;
+
 
 $fckg_lang['btn_dw_edit'] = "DW Editor";
 $fckg_lang['dw_btn_fck_preview']="CKG Voorbeeld";
