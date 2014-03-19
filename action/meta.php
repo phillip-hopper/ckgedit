@@ -7,17 +7,10 @@ if(!defined('DOKU_INC')) die();
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 require_once(DOKU_PLUGIN.'action.php');
 global $conf;
-global $ckgedit_lang;
 
 
-$default_english_file = DOKU_PLUGIN . 'ckgedit/action/lang/en.php';
-require_once($default_english_file);
-if(isset($conf['lang'])) {
-  $default_lang_file = DOKU_PLUGIN . 'ckgedit/action/lang/' . $conf['lang'] . '.php';
-  if(file_exists($default_lang_file)) {                                       
-    @include_once($default_lang_file);
-  }
-}
+
+
  
 class action_plugin_ckgedit_meta extends DokuWiki_Action_Plugin {
   var $session_id = false;    
@@ -81,8 +74,7 @@ if($_REQUEST['fck_preview_mode'] != 'nil' && !isset($_COOKIE['FCKG_USE']) && !$F
     echo '<style type="text/css">#edbtn__preview, .btn_show { position:absolute; visibility:hidden; }</style>';
  }
   
- global $ckgedit_lang;
-
+ 
   if($_REQUEST['fck_preview_mode']== 'preview'){
     return;
   }
@@ -94,10 +86,10 @@ if($_REQUEST['fck_preview_mode'] != 'nil' && !isset($_COOKIE['FCKG_USE']) && !$F
             '_elem' => 'button',
             'type' => 'submit',
             '_action' => 'cancel',
-            'value' => $ckgedit_lang['btn_fck_edit'],
+            'value' => $this->getLang('btn_fck_edit'),
             'class' => 'button',
             'id' => 'edbtn__edit',            
-            'title' => $ckgedit_lang['btn_fck_edit']             
+            'title' => $this->getLang('btn_fck_edit')             
         );
 
      $pos = strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE');
@@ -123,9 +115,9 @@ if($_REQUEST['fck_preview_mode'] != 'nil' && !isset($_COOKIE['FCKG_USE']) && !$F
    if(is_string($act) && $act != 'edit') {  
         return;
    }
-  global $INFO, $ckgedit_lang;
+  global $INFO;
   $cname =  $INFO['draft'];   
-  $discard = $ckgedit_lang['discard_edits'];  
+  $discard = $this->getLang('discard_edits');  
   $dokuwiki_priority =$this->dokuwiki_priority;
   echo "<script type='text/javascript'>\n//<![CDATA[ \n";
   echo "var useDW_Editor =$dokuwiki_priority;";
@@ -199,7 +191,7 @@ function check_userfiles() {
         $expire = null;        
         list($prefix,$mdir) = explode(trim(DOKU_BASE, '/'),$userfiles);
         if($mdir && !$is_domain) {
-        $media_dir = DOKU_BASE . $mdir . 'image/';
+           $media_dir = DOKU_BASE . $mdir . 'image/';
         }
         else $media_dir =  DOKU_URL .'lib/plugins/ckgedit/fckeditor/userfiles/image/';        
         setcookie('FCK_media',$media_dir, $expire, '/');           
@@ -388,7 +380,7 @@ function check_userfiles() {
            }
            if ($this->getConf('winstyle')) {
               setcookie('FCKConnector','WIN', $expire, DOKU_BASE);                                
-           }
+            }              
            if ($this->dokuwiki_priority) {
                if(isset($_COOKIE['FCKG_USE']) && $_COOKIE['FCKG_USE'] == 'other') {                              
                    $expire = time() -60*60*24*30;
@@ -507,9 +499,9 @@ function reset_user_rewrite_check() {
        if(isset($_COOKIE['FCKG_USE']) && $_COOKIE['FCKG_USE'] =='_false_' ) return;
        if($ACT == 'edit') {
           $this->user_rewrite = $conf['userewrite'];
-	     $conf['userewrite']  = 0; 
+	      $conf['userewrite']  = 0; 
        }
-       
+         
     }	  
 
       
