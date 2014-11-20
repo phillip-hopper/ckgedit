@@ -1,4 +1,6 @@
-rev 14-Nov_8-08_45_
+rev 14-Nov_20-14_53
+
+
 
 Initial Development distribution
 
@@ -574,6 +576,13 @@ Protect font tags inside code and file blocks
 Fixed bug in above and refactored  it
 
 8 Nov
-Changed labels for indent and outdent to 'Nested List' and 'Decrease Nesting'
+Updated labels for indent and outdent to 'Nested List' and 'Decrease Nesting'
 
+15 Nov
+Synced with github
 
+18 Nov
+Experimental toolbar customization
+
+20 Nov
+Upgraded alt_toolbar (customization) to CKeditor 4.4.5
