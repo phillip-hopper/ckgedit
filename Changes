@@ -1,4 +1,4 @@
-rev 14-Nov_20-14_53
+rev 14-Nov_21-05_04
 
 
 
@@ -586,3 +586,6 @@ Experimental toolbar customization
 
 20 Nov
 Upgraded alt_toolbar (customization) to CKeditor 4.4.5
+
+21 Nov
+Added missing id input field from 'Edit Fonts' button
