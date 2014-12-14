@@ -1,4 +1,4 @@
-rev 14-Nov_22-05_35
+rev 14-Dec_13-06_05
 
 
 
@@ -594,4 +594,7 @@ Added missing id input field from 'Edit Fonts' button
 Moved 'Edit Fonts' btton to dw__edit FORM
  
 Added missing en.js.unc (also added en.cmpr.js)
+
+13 Dec
+Load ckeditor.js with defer parameter
  
